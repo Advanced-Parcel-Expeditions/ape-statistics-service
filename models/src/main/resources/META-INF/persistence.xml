@@ -1,26 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence" version="2.1">
     <persistence-unit name="ape-statistics-jpa" transaction-type="RESOURCE_LOCAL">
-        <non-jta-data-source>jdbc/APEParcelDS</non-jta-data-source>
+        <non-jta-data-source>jdbc/APEStatisticsDS</non-jta-data-source>
 
-        <class>si.ape.statistics.models.entities.ParcelEntity</class>
-        <class>si.ape.statistics.models.entities.ParcelStatusEntity</class>
-        <class>si.ape.statistics.models.entities.StreetEntity</class>
+        <class>si.ape.statistics.models.entities.BranchEntity</class>
+        <class>si.ape.statistics.models.entities.BranchTypeEntity</class>
         <class>si.ape.statistics.models.entities.CityEntity</class>
         <class>si.ape.statistics.models.entities.CountryEntity</class>
-        <class>si.ape.statistics.models.entities.UserEntity</class>
-        <class>si.ape.statistics.models.entities.RoleEntity</class>
         <class>si.ape.statistics.models.entities.CustomerEntity</class>
+        <class>si.ape.statistics.models.entities.EmployeeEntity</class>
+        <class>si.ape.statistics.models.entities.JobEntity</class>
+        <class>si.ape.statistics.models.entities.JobParcelEntity</class>
+        <class>si.ape.statistics.models.entities.JobStatusEntity</class>
+        <class>si.ape.statistics.models.entities.JobTypeEntity</class>
+        <class>si.ape.statistics.models.entities.ParcelEntity</class>
+        <class>si.ape.statistics.models.entities.ParcelStatusEntity</class>
+        <class>si.ape.statistics.models.entities.RoleEntity</class>
+        <class>si.ape.statistics.models.entities.StreetEntity</class>
+        <class>si.ape.statistics.models.entities.UserEntity</class>
 
-        <class>si.ape.statistics.models.converters.InstantAtributeConverter</class>
-        <class>si.ape.statistics.models.converters.ParcelConverter</class>
-        <class>si.ape.statistics.models.converters.ParcelStatusConverter</class>
-        <class>si.ape.statistics.models.converters.StreetConverter</class>
+        <class>si.ape.statistics.models.converters.BranchConverter</class>
+        <class>si.ape.statistics.models.converters.BranchTypeConverter</class>
         <class>si.ape.statistics.models.converters.CityConverter</class>
         <class>si.ape.statistics.models.converters.CountryConverter</class>
-        <class>si.ape.statistics.models.converters.UserConverter</class>
-        <class>si.ape.statistics.models.converters.RoleConverter</class>
         <class>si.ape.statistics.models.converters.CustomerConverter</class>
+        <class>si.ape.statistics.models.converters.EmployeeConverter</class>
+        <class>si.ape.statistics.models.converters.InstantAtributeConverter</class>
+        <class>si.ape.statistics.models.converters.JobConverter</class>
+        <class>si.ape.statistics.models.converters.JobParcelConverter</class>
+        <class>si.ape.statistics.models.converters.JobStatusConverter</class>
+        <class>si.ape.statistics.models.converters.JobTypeConverter</class>
+        <class>si.ape.statistics.models.converters.ParcelConverter</class>
+        <class>si.ape.statistics.models.converters.ParcelStatusConverter</class>
+        <class>si.ape.statistics.models.converters.RoleConverter</class>
+        <class>si.ape.statistics.models.converters.StreetConverter</class>
+        <class>si.ape.statistics.models.converters.UserConverter</class>
+
 
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect"/>

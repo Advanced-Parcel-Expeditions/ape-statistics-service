@@ -8,12 +8,12 @@ import javax.persistence.*;
         {
                 @NamedQuery(name = "ParcelEntity.getAll",
                         query = "SELECT p FROM ParcelEntity p"),
-                @NamedQuery(name = "ParcelEntity.getAllByParameters",
-                        query = "SELECT p FROM ParcelEntity p WHERE " +
-                                "(:id IS NULL OR p.id = :id) AND " +
-                                "(:senderId IS NULL OR p.sender.id = :senderId) AND " +
-                                "(:recipientId IS NULL OR p.recipient.id = :recipientId) AND " +
-                                "(:parcelStatusId IS NULL OR p.parcelStatus.id = :parcelStatusId)"),
+                @NamedQuery(name = "ParcelEntity.getNumberOfParcelsAtBranch",
+                        query = "SELECT COUNT(P) FROM ParcelEntity p WHERE p.id IN (SELECT jp.parcel.id FROM " +
+                                "JobParcelEntity jp JOIN JobEntity j ON jp.job.id = j.id WHERE j.staff.branch.id = " +
+                                ":branchId AND j.jobStatus.id = 1)"),
+                @NamedQuery(name = "ParcelEntity.getNumberOfParcels",
+                        query = "SELECT COUNT(p) FROM ParcelEntity p"),
         })
 public class ParcelEntity {
     @Id
