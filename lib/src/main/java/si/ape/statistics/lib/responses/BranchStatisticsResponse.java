@@ -1,29 +1,57 @@
 package si.ape.statistics.lib.responses;
 
+import org.eclipse.microprofile.openapi.annotations.media.Schema;
+
+import javax.json.bind.annotation.JsonbProperty;
+
 public class BranchStatisticsResponse {
 
+    @Schema(description = "Number of parcels in the branch.")
+    @JsonbProperty("numberOfParcels")
     private Long numberOfParcels;
 
+    @Schema(description = "Number of pending jobs in the branch.")
+    @JsonbProperty("numberOfPendingJobs")
     private Long numberOfPendingJobs;
 
+    @Schema(description = "Number of completed jobs in the branch.")
+    @JsonbProperty("numberOfCompletedJobs")
     private Long numberOfCompletedJobs;
 
+    @Schema(description = "Number of cancelled jobs in the branch.")
+    @JsonbProperty("numberOfCancelledJobs")
     private Long numberOfCancelledJobs;
 
+    @Schema(description = "Number of administrators in the branch.")
+    @JsonbProperty("numberOfAdministrators")
     private Long numberOfAdministrators;
 
+    @Schema(description = "Number of warehouse agents in the branch.")
+    @JsonbProperty("numberOfWarehouseAgents")
     private Long numberOfWarehouseAgents;
 
+    @Schema(description = "Number of warehouse managers in the branch.")
+    @JsonbProperty("numberOfWarehouseManager")
     private Long numberOfWarehouseManager;
 
+    @Schema(description = "Number of delivery drivers in the branch.")
+    @JsonbProperty("numberOfDeliveryDrivers")
     private Long numberOfDeliveryDrivers;
 
+    @Schema(description = "Number of international drivers in the branch.")
+    @JsonbProperty("numberOfInternationalDrivers")
     private Long numberOfInternationalDrivers;
 
+    @Schema(description = "Number of logistics agents in the branch.")
+    @JsonbProperty("numberOfLogisticsAgents")
     private Long numberOfLogisticsAgents;
 
+    @Schema(description = "Number of specialists in the branch.")
+    @JsonbProperty("numberOfSpecialists")
     private Long numberOfSpecialists;
 
+    @Schema(description = "Number of employees in the branch.")
+    @JsonbProperty("numberOfEmployees")
     private Long numberOfEmployees;
 
     public Long getNumberOfParcels() {
