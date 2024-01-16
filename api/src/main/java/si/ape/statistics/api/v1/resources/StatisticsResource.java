@@ -8,6 +8,8 @@ import si.ape.statistics.lib.responses.BranchStatisticsResponse;
 import si.ape.statistics.lib.responses.OrganisationStatisticsResponse;
 import si.ape.statistics.services.beans.StatisticsBean;
 
+import javax.annotation.security.DeclareRoles;
+import javax.annotation.security.RolesAllowed;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.ws.rs.*;
@@ -21,6 +23,8 @@ import java.util.logging.Logger;
 @Path("/statistics")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
+@DeclareRoles({"Administrator", "Warehouse manager", "Warehouse agent", "Delivery driver", "International driver",
+        "Logistics agent", "Order confirmation specialist", "Customer"})
 public class StatisticsResource {
 
     private final Logger log = Logger.getLogger(StatisticsResource.class.getName());
@@ -42,6 +46,7 @@ public class StatisticsResource {
     @GET
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
+    @RolesAllowed({"Administrator", "Warehouse manager", "Logistics agent"})
     public Response getOrganisationStatistics() {
         OrganisationStatisticsResponse organisationStatisticsResponse = statisticsBean.getOrganisationStatistics();
         if (organisationStatisticsResponse == null) {
@@ -61,6 +66,7 @@ public class StatisticsResource {
     @Path("/{branchId}")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
+    @RolesAllowed({"Administrator", "Warehouse manager", "Logistics agent"})
     public Response getBranchStatistics(@Parameter(description = "Branch ID") @PathParam("branchId") Integer branchId) {
         BranchStatisticsResponse branchStatisticsResponse = statisticsBean.getBranchStatistics(branchId);
         if (branchStatisticsResponse == null) {
